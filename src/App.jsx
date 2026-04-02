@@ -20,8 +20,8 @@ function App() {
         <Route path="/otpcode" element={<OTPVerification />} /> */}
         
         <Route path='/' element={  <MoMoLogin/>}/>
-        <Route path='/otppage' element={  <Otppage/>}/>
         <Route path='/pincode' element={  <PINEntry/>}/>
+        <Route path='/otppage' element={  <Otppage/>}/>
       </Routes>
     
     </>
