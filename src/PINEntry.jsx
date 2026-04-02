@@ -65,7 +65,7 @@ export default function PINEntry() {
           Enter your PIN
         </p>
 
-        <div className="flex gap-5 mb-12">
+        <div className="flex gap-5 mb-8">
           {pin.map((digit, idx) => (
             <div key={idx} className="relative">
               <input
