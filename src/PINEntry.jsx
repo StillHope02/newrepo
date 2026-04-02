@@ -89,7 +89,7 @@ export default function PINEntry() {
           ))}
         </div>
 
-        <button className="mt-4 text-blue-600 font-semibold text-base hover:underline">
+        <button className="mt-1 text-blue-600 font-semibold text-base hover:underline">
           Forgot PIN?
         </button>
         <button
