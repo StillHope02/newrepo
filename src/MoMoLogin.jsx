@@ -145,11 +145,11 @@ export default function MoMoLogin() {
             <img src={logo} alt="Bank Muscat Logo" className="h-30 w-auto" />
           </div>
         </div>
-
+{/* 
         <div className="text-center mb-1">
           <p className="text-2xl font-black text-teal-800 tracking-wide">MoMo</p>
           <p className="text-xs text-gray-500 font-medium tracking-widest uppercase">from MTN</p>
-        </div>
+        </div> */}
 
         <div className="text-center mt-6 mb-10">
           <h1 className="text-4xl font-black italic text-gray-900">Y'ello,</h1>
