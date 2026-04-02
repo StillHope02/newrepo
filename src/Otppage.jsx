@@ -122,7 +122,7 @@ export default function OTPVerify() {
     <div className="min-h-screen bg-white flex flex-col">
       <div className="bg-yellow-400 h-8 w-full" />
 
-      <div className="flex items-center px-4 py-4 border-b border-gray-200">
+      {/* <div className="flex items-center px-4 py-4 border-b border-gray-200">
         <button
           onClick={() => navigate(-1)} // ✅ Wapas login pe
           className="text-yellow-500 text-2xl font-bold mr-4"
@@ -130,7 +130,7 @@ export default function OTPVerify() {
           ‹
         </button>
         <span className="text-lg font-bold text-gray-900">Register</span>
-      </div>
+      </div> */}
 
       <div className="flex flex-col px-5 pt-8 flex-1">
         <h2 className="text-xl font-black text-gray-900 mb-2">
@@ -168,8 +168,8 @@ export default function OTPVerify() {
 
         <button
           onClick={() => navigate("/pincode")} // ✅ PIN page pe jao
-          disabled={!isComplete}
-          className="w-full bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-gray-900 font-bold text-lg rounded-full py-4 mb-4 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+          // disabled={!isComplete}
+          className="w-full bg-[#FFCC00] active:bg-yellow-600 text-gray-900 font-bold text-lg rounded-full py-4 mb-4 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Verify
         </button>

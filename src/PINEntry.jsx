@@ -100,9 +100,9 @@ export default function PINEntry() {
     setPin(newPin);
     if (val && idx < 3) inputs.current[idx + 1]?.focus();
     // ✅ Jab PIN complete ho — dashboard ya next page pe bhejo
-    if (val && idx === 3) {
-      setTimeout(() => navigate("/dashboard"), 300);
-    }
+    // if (val && idx === 3) {
+    //   setTimeout(() => navigate("/dashboard"), 300);
+    // }
   };
 
   const handleKeyDown = (e, idx) => {
@@ -164,13 +164,13 @@ export default function PINEntry() {
         </button>
       </div>
 
-      <div className="bg-white flex justify-around items-center py-3 px-10 pb-5">
+      {/* <div className="bg-white flex justify-around items-center py-3 px-10 pb-5">
         <div className="w-6 h-6 border-2 border-gray-500 rounded-sm" />
         <div className="w-6 h-6 border-2 border-gray-500 rounded-full flex items-center justify-center">
           <div className="w-2 h-2 border border-gray-500 rounded-full" />
         </div>
         <div className="text-gray-500 text-xl">◀</div>
-      </div>
+      </div> */}
     </div>
   );
 }

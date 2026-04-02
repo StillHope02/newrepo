@@ -113,6 +113,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "./assets/logo (1).png"
 
 export default function MoMoLogin() {
   const [phone, setPhone] = useState("");
@@ -123,15 +124,9 @@ export default function MoMoLogin() {
       <div className="bg-yellow-400 h-8 w-full" />
 
       <div className="flex flex-col items-center flex-1 px-6 pt-10">
-        <div className="mb-6">
-          <div className="w-20 h-20 rounded-xl overflow-hidden flex items-center justify-center bg-teal-700 relative shadow-md">
-            <svg viewBox="0 0 80 80" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="80" height="80" rx="14" fill="#1A5276" />
-              <rect y="52" width="80" height="28" rx="0" fill="#F4C300" />
-              <rect y="52" width="80" height="8" rx="0" fill="#D4A900" />
-              <path d="M40 14C32 14 26 20 26 28C26 38 40 52 40 52C40 52 54 38 54 28C54 20 48 14 40 14Z" fill="white" opacity="0.9" />
-              <circle cx="40" cy="28" r="6" fill="#1A5276" />
-            </svg>
+        <div className="">
+          <div className="flex items-center space-x-3">
+            <img src={logo} alt="Bank Muscat Logo" className="h-30 w-auto" />
           </div>
         </div>
 
@@ -161,8 +156,8 @@ export default function MoMoLogin() {
         <div className="w-full max-w-sm mt-6">
           <button
             onClick={() => navigate("/otppage", { state: { phone } })} // ✅ phone pass karo
-            disabled={phone.length < 7} // ✅ validation
-            className="w-full bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 text-gray-900 font-bold text-lg rounded-full py-4 transition-colors duration-150 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+            // disabled={phone.length < 7} // ✅ validation
+            className="w-full bg-[#FFCC00] active:bg-yellow-600 text-gray-900 font-bold text-lg rounded-full py-3 transition-colors duration-150 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Continue
           </button>
