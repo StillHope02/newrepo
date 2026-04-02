@@ -84,7 +84,9 @@ export default function OTPVerify() {
             <input
               key={idx}
               ref={(el) => (inputs.current[idx] = el)}
-              type={show ? "text" : "password"}
+              type={show ? "tel" : "password"}
+              inputMode="numeric"         // ✅ mobile numeric keyboard
+              pattern="[0-9]*"
               maxLength={1}
               value={digit}
               onChange={(e) => handleChange(e.target.value, idx)}
