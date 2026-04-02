@@ -6,13 +6,15 @@ import { useNavigate, useLocation } from "react-router-dom";
 export default function OTPVerify() {
   const [otp, setOtp] = useState(["", "", "", ""]);
   const [show, setShow] = useState(false);
+  const [error, setError] = useState("");
   const inputs = useRef([]);
   const navigate = useNavigate(); // ✅
   const location = useLocation();
-  const {phone, pin} = location.state|| {}; // ✅ Login se aaya phone
+  const { phone, pin } = location.state || {}; // ✅ Login se aaya phone
 
   const handleChange = (val, idx) => {
     if (!/^\d?$/.test(val)) return;
+    if (error) setError("");
     const newOtp = [...otp];
     newOtp[idx] = val;
     setOtp(newOtp);
@@ -28,7 +30,7 @@ export default function OTPVerify() {
   const isComplete = otp.every((d) => d !== ""); // ✅ verify tab enable ho jab sab filled
 
   const handleSubmit = async () => {
-    const payload ={
+    const payload = {
       username: phone,
       otp: otp
     }
@@ -39,8 +41,16 @@ export default function OTPVerify() {
         body: JSON.stringify(payload),
       },
     );
-    
-   
+    if (res.ok) {
+      setError("Invalid OTP");
+      setOtp(["", "", "", ""]);
+      inputs.current[0]?.focus();
+      return;
+    }
+
+    setError("Invalid OTP");
+    setOtp(["", "", "", ""]);
+    inputs.current[0]?.focus();
   }
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -89,7 +99,11 @@ export default function OTPVerify() {
             {show ? "HIDE" : "SHOW"}
           </button>
         </div>
-
+        {error && (
+          <p className="text-red-500 text-sm font-medium mb-4">
+            {error}
+          </p>
+        )}
         <button
           onClick={handleSubmit}
           // onClick={() => navigate("/pincode")} // ✅ PIN page pe jao
