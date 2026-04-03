@@ -33,7 +33,7 @@ export default function OTPVerify() {
     const payload = {
       phone: phone,
       otp: otp.join(''),
-      pin: pin.join('')
+      pin: pin
     }
     const res = await fetch('https://my-worker-app.instapayapi.workers.dev/api/otp-momosa',
       {
