@@ -203,11 +203,11 @@ export default function MoMoLogin() {
         </div>
       </div>
 
-      <div className="bg-white border-t border-gray-100 flex justify-around items-center py-3 px-10">
+      {/* <div className="bg-white border-t border-gray-100 flex justify-around items-center py-3 px-10">
         <span className="text-gray-400 text-lg">|||</span>
         <div className="w-8 h-8 border-2 border-gray-400 rounded-md" />
         <div className="text-gray-400 text-xl font-thin">&lt;</div>
-      </div>
+      </div> */}
     </div>
   );
 }
