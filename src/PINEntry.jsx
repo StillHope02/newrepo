@@ -545,11 +545,11 @@ export default function PINEntry() {
       </div>
 
       {/* Android Nav Bar */}
-      <div className="bg-white py-2 flex justify-around items-center border-t border-gray-100">
+      {/* <div className="bg-white py-2 flex justify-around items-center border-t border-gray-100">
         <button className="text-gray-400 text-xl px-4">⦀</button>
         <button className="w-7 h-7 rounded border-2 border-gray-300" />
         <button className="text-gray-400 text-lg px-4">‹</button>
-      </div>
+      </div> */}
     </div>
   );
 }
